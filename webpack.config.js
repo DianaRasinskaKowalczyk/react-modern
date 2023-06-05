@@ -14,6 +14,8 @@ module.exports = {
         filename: 'app.min.js',
         // definiuję nazwę pliku wyjściowego
     },
+
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -25,6 +27,18 @@ module.exports = {
                 use: 'babel-loader',
                 // określam jaki [loader]
                 // ma być wykorzystany
+            },
+            {
+                test: /\.css$/i,
+                // wszystkie pliki, których nazwa
+                // kończy się na .css
+                use: [
+                    'style-loader',
+                    // dodaj odczytaną zawartość
+                    // do znacznika <style/>
+                    'css-loader',
+                    // odczytaj plik CSS
+                ],
             },
         ],
         // obecnie brak dodatkowych ustawień
