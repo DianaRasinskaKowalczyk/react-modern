@@ -1,24 +1,18 @@
 /* eslint-disable no-console */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { initData } from '../db/defaultData';
 import { BoardContext } from '../context';
 import Board from './Board';
 import useStorage from '../hook';
 
 const App = () => {
-    const [getStorage, setStorage] = useStorage('initData');
+    const [state, save] = useStorage('my-app', initData);
 
-    useEffect(() => {
-        const initialStorage = getStorage('initData');
-        if (initialStorage === null) {
-            setStorage(initData);
-        }
-        setStorage(initialStorage);
-    }, []);
+    console.log(save);
 
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
-        <BoardContext.Provider value={initData}>
+        <BoardContext.Provider value={state}>
             <Board />
         </BoardContext.Provider>
     );
