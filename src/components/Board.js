@@ -5,11 +5,8 @@ import { BoardContext } from '../context';
 const Board = () => {
     const { defaultColumns } = useContext(BoardContext);
 
-    // eslint-disable-next-line no-console
-    console.log(defaultColumns);
-
     // eslint-disable-next-line react/destructuring-assignment, no-unused-vars
-    const columns = defaultColumns.map((column) => <Column column={defaultColumns} key={column.id} />);
+    const columns = defaultColumns.map((column) => <Column column={column} key={column.id} />);
 
     return (
         <section>
