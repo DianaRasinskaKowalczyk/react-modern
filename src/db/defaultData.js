@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/prefer-default-export
 export const initData = {
-    defaultColumns: [
+    columns: [
         { id: 1, columnName: 'Pending', limit: 5 },
         { id: 2, columnName: 'Analysis', limit: 3 },
         { id: 3, columnName: 'Development', limit: 3 },
@@ -8,7 +8,7 @@ export const initData = {
         { id: 5, columnName: 'Done', limit: 5 },
     ],
 
-    defaultTasks: [
+    tasks: [
         {
             id: 1,
             taskName: 'Task1',

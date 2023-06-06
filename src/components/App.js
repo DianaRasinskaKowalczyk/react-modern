@@ -6,13 +6,13 @@ import Board from './Board';
 import useStorage from '../hook';
 
 const App = () => {
-    const [state, save] = useStorage('my-app', initData);
+    const [data, setData] = useStorage('my-app', initData);
 
-    console.log(save);
+    console.log(setData);
 
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
-        <BoardContext.Provider value={state}>
+        <BoardContext.Provider value={data}>
             <Board />
         </BoardContext.Provider>
     );

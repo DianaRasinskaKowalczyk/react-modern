@@ -4,10 +4,10 @@ import Task from './Task';
 
 const Column = (props) => {
     const { column } = props;
-    const { defaultTasks } = useContext(BoardContext);
+    const { tasks } = useContext(BoardContext);
 
     // eslint-disable-next-line no-console, no-unused-vars
-    const columnTasks = defaultTasks.filter((task) => column.id === task.idColumn);
+    const columnTasks = tasks.filter((task) => column.id === task.idColumn);
 
     const renderedTasks = columnTasks.map((task) => <Task taskData={task} key={task.id} />);
 
