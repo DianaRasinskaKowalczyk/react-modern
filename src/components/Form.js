@@ -23,7 +23,6 @@ const Form = () => {
         if (type === 'reset') {
             return defaultFormData;
         }
-
         return {
             ...state,
             [name]: value,

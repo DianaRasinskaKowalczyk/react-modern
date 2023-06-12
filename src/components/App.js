@@ -8,12 +8,16 @@ import useStorage from '../hook';
 import Form from './Form';
 
 const App = () => {
-    const [data, setData] = useStorage(initData);
+    const [data, setData] = useStorage('my-app', initData);
 
     const { tasks, columns } = data;
 
     const addTask = (task) => {
-        setData([...tasks, task]);
+        const updatedData = {
+            columns,
+            tasks: [...tasks, task],
+        };
+        setData(updatedData);
     };
 
     return (

@@ -46,6 +46,18 @@ const Task = (props) => {
         }
     };
 
+    const removeTask = (taskId) => {
+        // eslint-disable-next-line arrow-body-style
+        const newTasks = tasks.filter((task) => {
+            return taskId !== task.id;
+        });
+
+        setData({
+            columns,
+            tasks: newTasks,
+        });
+    };
+
     return (
         <li key={id}>
             <h3>Task Title: {taskName}</h3>
@@ -53,8 +65,8 @@ const Task = (props) => {
             <p>Task Description: {taskDescription}</p>
             <p>Task Deadline: {taskDeadline}</p>
             <p>Current Column: {idColumn}</p>
-            <button type="button" onClick={() => moveTask(id)}>
-                Move task to the right
+            <button type="button" onClick={idColumn === 5 ? () => removeTask(id) : () => moveTask(id)}>
+                {idColumn === 5 ? 'Task is done' : 'Move task to the right'}
             </button>
         </li>
     );
