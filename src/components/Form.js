@@ -62,8 +62,10 @@ const Form = () => {
                 addTask(task);
                 setInfo('Congratulations! Your task is now ready to start.');
                 dispatch({ type: 'reset' });
+                setErrorsList([])
             }
         } else {
+            setInfo('');
             setErrorsList(errors);
         }
     };
