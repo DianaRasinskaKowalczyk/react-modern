@@ -4,7 +4,8 @@ import Task from './Task';
 
 const Column = (props) => {
     const { column } = props;
-    const { tasks } = useContext(BoardContext);
+    const { data } = useContext(BoardContext);
+    const { tasks } = data;
 
     // eslint-disable-next-line no-console, no-unused-vars
     const columnTasks = tasks.filter((task) => column.id === task.idColumn);

@@ -1,20 +1,30 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable no-console */
 import React from 'react';
 import { initData } from '../db/defaultData';
-import { BoardContext } from '../context';
+import { BoardContext, FormContext } from '../context';
 import Board from './Board';
 import useStorage from '../hook';
+import Form from './Form';
 
 const App = () => {
-    const [data, setData] = useStorage('my-app', initData);
+    const [data, setData] = useStorage(initData);
 
-    console.log(setData);
+    const { tasks, columns } = data;
+
+    const addTask = (task) => {
+        setData([...tasks, task]);
+    };
 
     return (
-        // eslint-disable-next-line react/jsx-no-constructed-context-values
-        <BoardContext.Provider value={data}>
-            <Board />
-        </BoardContext.Provider>
+        <section>
+            <BoardContext.Provider value={{ data, setData }}>
+                <Board />
+            </BoardContext.Provider>
+            <FormContext.Provider value={{ setData, tasks, columns, addTask }}>
+                <Form />
+            </FormContext.Provider>
+        </section>
     );
 };
 
