@@ -12,6 +12,7 @@ const App = () => {
 
     const { tasks, columns } = data;
 
+
     const addTask = (task) => {
         const updatedData = {
             columns,

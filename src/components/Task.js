@@ -48,8 +48,8 @@ const Task = (props) => {
 
     const removeTask = (taskId) => {
         // eslint-disable-next-line arrow-body-style
-        const newTasks = tasks.filter((task) => {
-            return taskId !== task.id;
+        const newTasks = tasks.find((task) => {
+            return task.id !== taskId;
         });
 
         setData({
