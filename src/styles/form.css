@@ -1,0 +1,45 @@
+.form{
+    background-color: #A7ECEE;
+    padding: 20px;
+
+}
+
+.form__title{
+    text-align: center;
+    color: #210062;
+    padding-bottom: 20px
+}
+
+.form__list{
+    display: flex;
+    justify-content: center;
+}
+
+.form__field{
+    padding: 5px;
+    color:  #210062;
+}
+
+
+.form__button {
+        padding: 5px;
+        background-color:#77037B;
+        color:  #F9E2AF;
+        border:#77037B solid 1px
+}
+    
+.form__button:hover{
+        background-color:#009FBD;
+        color:  #77037B;
+}
+
+.form__mistakes--list{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    column-gap: 10px;
+    color: #DD58D6;
+    font-weight: bold;
+}
+
+

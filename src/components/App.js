@@ -6,12 +6,12 @@ import { BoardContext, FormContext } from '../context';
 import Board from './Board';
 import useStorage from '../hook';
 import Form from './Form';
+import '../styles/app.css';
 
 const App = () => {
     const [data, setData] = useStorage('my-app', initData);
 
     const { tasks, columns } = data;
-
 
     const addTask = (task) => {
         const updatedData = {
@@ -22,7 +22,7 @@ const App = () => {
     };
 
     return (
-        <section>
+        <section className="app">
             <BoardContext.Provider value={{ data, setData }}>
                 <Board />
             </BoardContext.Provider>

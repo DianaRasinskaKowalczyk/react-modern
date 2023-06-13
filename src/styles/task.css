@@ -1,0 +1,37 @@
+.task{
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 25px;
+    background-color: #F9E2AF;
+    width: 90%;
+    color: #77037B
+}
+
+.task__button {
+    padding: 5px;
+    background-color:#77037B;
+    color:  #F9E2AF;
+    border:#77037B solid 1px
+}
+
+.task__button:hover{
+    background-color:#009FBD;
+    color:  #77037B;
+}
+
+.task--pending{
+    background-color: #FFBDF7;
+}
+.task--analysis{
+    background-color: #E1AEFF;
+}
+.task--development{
+    background-color: #A7ECEE;
+}
+.task--testing{
+    background-color: #99DBF5;
+}
+
+ .task--done{
+    background-color:  #F9E2AF;;
+ }

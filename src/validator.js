@@ -8,14 +8,14 @@ function validator(inputData, fieldsArr) {
 
         if (field.required && field.name !== 'taskDeadline') {
             if (value.length <= 2) {
-                errors.push(`${field.label} is incorrect`);
+                errors.push(`!!! ${field.label} is incorrect !!!`);
             }
         }
 
         if (field.pattern) {
             const reg = new RegExp(field.pattern);
             if (!reg.test(value)) {
-                errors.push(`${field.label} is invalid`);
+                errors.push(`!!! ${field.label} is invalid !!!`);
             }
         }
     });

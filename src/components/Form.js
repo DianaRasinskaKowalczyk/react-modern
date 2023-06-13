@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 import fields from '../fields';
 import validator from '../validator';
 import { FormContext } from '../context';
+import '../styles/form.css';
 
 const Form = () => {
     const defaultFormData = {
@@ -62,10 +63,10 @@ const Form = () => {
                 addTask(task);
                 setInfo('Congratulations! Your task is now ready to start.');
                 dispatch({ type: 'reset' });
-                setErrorsList([])
+                setErrorsList([]);
             }
         } else {
-            setInfo('');
+            setInfo('Please fix the form');
             setErrorsList(errors);
         }
     };
@@ -73,8 +74,8 @@ const Form = () => {
     // eslint-disable-next-line arrow-body-style
     const formFields = fields.map((field) => {
         return (
-            <label htmlFor={field.name} key={field.name}>
-                {field.label}
+            <label className="form__field" htmlFor={field.name} key={field.name}>
+                {field.label}:
                 <input
                     type={field.type}
                     name={field.name}
@@ -87,17 +88,17 @@ const Form = () => {
     });
 
     return (
-        <section>
-            <h2>{info}</h2>
-            <form onSubmit={(e) => handleSubmit(e)}>
+        <section className="form">
+            <h2 className="form__title">{info}</h2>
+            <form className="form__list" onSubmit={(e) => handleSubmit(e)}>
                 {formFields}
-                <ul>
-                    {errorsList.map((err) => (
-                        <li key={uuid()}>{err}</li>
-                    ))}
-                </ul>
-                <input type="submit" value="Send" />
+                <input className="form__button" type="submit" value="Send" />
             </form>
+            <ul className="form__mistakes--list">
+                {errorsList.map((err) => (
+                    <li key={uuid()}>{err}</li>
+                ))}
+            </ul>
         </section>
     );
 };

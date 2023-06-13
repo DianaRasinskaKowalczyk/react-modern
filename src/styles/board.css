@@ -1,0 +1,13 @@
+.board__title{
+    color: #210062;
+    text-align: center;
+    font-size: 40px;
+}
+
+.board__columns{
+list-style: none;
+display: flex;
+column-gap: 5px;
+justify-content: center;
+padding: 0px;
+}

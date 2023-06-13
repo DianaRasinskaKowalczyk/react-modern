@@ -1,5 +1,7 @@
+/* eslint-disable indent */
 import React, { useContext } from 'react';
 import { BoardContext } from '../context';
+import '../styles/task.css';
 
 const Task = (props) => {
     const { taskData } = props;
@@ -48,7 +50,7 @@ const Task = (props) => {
 
     const removeTask = (taskId) => {
         // eslint-disable-next-line arrow-body-style
-        const newTasks = tasks.find((task) => {
+        const newTasks = tasks.filter((task) => {
             return task.id !== taskId;
         });
 
@@ -58,15 +60,37 @@ const Task = (props) => {
         });
     };
 
+    // eslint-disable-next-line consistent-return
+    const addTaskClass = () => {
+        switch (idColumn) {
+            case 1:
+                return 'task--pending';
+            case 2:
+                return 'task--analysis';
+            case 3:
+                return 'task--development';
+            case 4:
+                return 'task--testing';
+            case 5:
+                return 'task--done';
+            default:
+                return null;
+        }
+    };
+
     return (
-        <li key={id}>
-            <h3>Task Title: {taskName}</h3>
-            <p>Task Owner: {taskOwner}</p>
-            <p>Task Description: {taskDescription}</p>
-            <p>Task Deadline: {taskDeadline}</p>
+        <li className={`task ${addTaskClass()}`} key={id}>
+            <h3>Title: {taskName}</h3>
+            <p>Owner: {taskOwner}</p>
+            <p>Description: {taskDescription}</p>
+            <p>Deadline: {taskDeadline}</p>
             <p>Current Column: {idColumn}</p>
-            <button type="button" onClick={idColumn === 5 ? () => removeTask(id) : () => moveTask(id)}>
-                {idColumn === 5 ? 'Task is done' : 'Move task to the right'}
+            <button
+                className="task__button"
+                type="button"
+                onClick={idColumn === 5 ? () => removeTask(id) : () => moveTask(id)}
+            >
+                {idColumn === 5 ? 'Task is done' : 'Move right'}
             </button>
         </li>
     );

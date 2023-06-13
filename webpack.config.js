@@ -29,15 +29,10 @@ module.exports = {
                 // ma być wykorzystany
             },
             {
-                test: /\.css$/i,
-                // wszystkie pliki, których nazwa
-                // kończy się na .css
+                test: /\.css$/,
                 use: [
-                    'style-loader',
-                    // dodaj odczytaną zawartość
-                    // do znacznika <style/>
-                    'css-loader',
-                    // odczytaj plik CSS
+                    'style-loader', // dodaje stylowanie do DOM poprzez utworzenie elementu <style>
+                    'css-loader', // odczytuje pliki CSS i dodaje je do bundla
                 ],
             },
         ],

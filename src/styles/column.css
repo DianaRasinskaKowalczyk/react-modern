@@ -1,0 +1,38 @@
+.column__item{
+    padding: 10px;
+    border: 1px solid #77037B;
+    flex-basis: 20vw;
+    background-color: #009FBD;
+}
+
+.column__item--title, .column__item--limit{
+    color: #F9E2AF;
+text-align: center;
+padding-bottom: 10px
+
+}
+
+.column__tasks{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0px
+}
+
+.column--pending{
+    color: #FFBDF7;
+}
+.column--analysis{
+    color: #E1AEFF;
+}
+.column--development{
+    color: #A7ECEE;
+}
+.column--testing{
+    color: #99DBF5;
+}
+
+ .column--done{
+    color:  #F9E2AF;;
+ }
