@@ -30,6 +30,8 @@ const Task = (props) => {
                 return true;
             }
         }
+        // eslint-disable-next-line no-alert, no-undef
+        alert('Next column is currently full');
         return false;
     };
 

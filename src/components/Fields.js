@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import { InputContext } from '../context';
+import React from 'react';
+
 // import fields from '../fields';
 
 const Fields = (props) => {
-    const { fields } = props;
+    const { fields, currentState } = props;
 
-    const { defaultFormData } = useContext(InputContext);
+    // const defaultFormData = useContext(InputContext);
 
     const handleChange = (e) => {
         const { handleInput } = props;
@@ -18,14 +18,15 @@ const Fields = (props) => {
             <input
                 type={field.type}
                 name={field.name}
-                value={defaultFormData[field.name]}
+                value={currentState[field.name]}
                 onChange={handleChange}
                 placeholder={field.placeholder}
             />
         </label>
     ));
 
-    return { formFields };
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    return <>{formFields}</>;
 };
 
 export default Fields;

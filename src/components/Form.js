@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useReducer, useContext, useState } from 'react';
-import { v4 as uuid } from 'uuid';
 import fields from '../fields';
 import validator from '../validator';
-import { FormContext, InputContext } from '../context';
+import { FormContext } from '../context';
 import '../styles/form.css';
 import Fields from './Fields';
 
@@ -94,15 +93,14 @@ const Form = () => {
         <section className="form">
             <h2 className="form__title">{info}</h2>
             <form className="form__list" onSubmit={(e) => handleSubmit(e)}>
-                <InputContext.Provider value={defaultFormData}>
-                    <Fields fields={fields} handleInput={(e) => dispatch(e.target)} />
-                </InputContext.Provider>
+                <Fields fields={fields} handleInput={(e) => dispatch(e.target)} currentState={state} />
                 <input className="form__button" type="submit" value="Send" />
             </form>
             <ul className="form__mistakes--list">
-                {errorsList.map((err) => (
-                    <li key={uuid()}>{err}</li>
-                ))}
+                {errorsList.map((err) => {
+                    const index = errorsList.indexOf(err);
+                    return <li key={index}>{err}</li>;
+                })}
             </ul>
         </section>
     );
