@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useReducer, useContext, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import fields from '../fields';
 import validator from '../validator';
-import { FormContext } from '../context';
+import { FormContext, InputContext } from '../context';
 import '../styles/form.css';
+import Fields from './Fields';
 
 const Form = () => {
     const defaultFormData = {
@@ -39,7 +41,8 @@ const Form = () => {
 
         // eslint-disable-next-line no-unused-vars
         const getFirstColumn = () => {
-            const firstColumn = columns.find((column) => Number(column.id) === 1);
+            const firstColumn = columns[0];
+
             // eslint-disable-next-line no-console
             return firstColumn;
         };
@@ -72,26 +75,28 @@ const Form = () => {
     };
 
     // eslint-disable-next-line arrow-body-style
-    const formFields = fields.map((field) => {
-        return (
-            <label className="form__field" htmlFor={field.name} key={field.name}>
-                {field.label}:
-                <input
-                    type={field.type}
-                    name={field.name}
-                    value={state[field.name]}
-                    onChange={(e) => dispatch(e.target)}
-                    placeholder={field.placeholder}
-                />
-            </label>
-        );
-    });
+    // const formFields = fields.map((field) => {
+    //     return (
+    //         <label className="form__field" htmlFor={field.name} key={field.name}>
+    //             {field.label}:
+    //             <input
+    //                 type={field.type}
+    //                 name={field.name}
+    //                 value={state[field.name]}
+    //                 onChange={(e) => dispatch(e.target)}
+    //                 placeholder={field.placeholder}
+    //             />
+    //         </label>
+    //     );
+    // });
 
     return (
         <section className="form">
             <h2 className="form__title">{info}</h2>
             <form className="form__list" onSubmit={(e) => handleSubmit(e)}>
-                {formFields}
+                <InputContext.Provider value={defaultFormData}>
+                    <Fields fields={fields} handleInput={(e) => dispatch(e.target)} />
+                </InputContext.Provider>
                 <input className="form__button" type="submit" value="Send" />
             </form>
             <ul className="form__mistakes--list">

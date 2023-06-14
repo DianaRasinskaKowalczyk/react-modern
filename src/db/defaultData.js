@@ -1,11 +1,11 @@
 // eslint-disable-next-line import/prefer-default-export
 export const initData = {
     columns: [
-        { id: 1, columnName: 'Pending', limit: 5 },
-        { id: 2, columnName: 'Analysis', limit: 3 },
-        { id: 3, columnName: 'Development', limit: 3 },
-        { id: 4, columnName: 'Test', limit: 4 },
-        { id: 5, columnName: 'Done', limit: 5 },
+        { id: 1, columnName: 'Pending', limit: 5, color: 'column--pending' },
+        { id: 2, columnName: 'Analysis', limit: 3, color: 'column--analysis' },
+        { id: 3, columnName: 'Development', limit: 3, color: 'column--development' },
+        { id: 4, columnName: 'Test', limit: 4, color: 'column--testing' },
+        { id: 5, columnName: 'Done', limit: 5, color: 'column--done' },
     ],
 
     tasks: [
